@@ -39,7 +39,16 @@ From: nickjer/singularity-r:3.5.1
   pip3 install -U numpy
   pip3 install --upgrade scipy
   pip3 install -U scikit-learn
-  pip3 install --user rgf_python                                 # here use '--user' instead of 'sudo' [ 'sudo' is not allowed and I have to install 'rgf-python' system-wide, otherwise it doesn't work ]
+
+  # 'rgf-python' specific installation ( create an ".rgfrc" file as indicated in https://github.com/RGF-team/rgf/tree/master/python-package )
+  echo 'exe_location=$HOME/rgf' >> .rgfrc 
+  echo 'fastrgf_location=$HOME' >> .rgfrc
+  echo 'temp_location=tempfile.gettempdir()' >> .rgfrc
+
+  git clone https://github.com/RGF-team/rgf.git
+  cd rgf/python-package
+  python3 setup.py install
+  cd
 
   # Software versions
   export RSTUDIO_VERSION=1.1.453
