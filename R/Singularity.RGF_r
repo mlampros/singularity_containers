@@ -34,21 +34,13 @@ From: nickjer/singularity-r:3.5.1
   apt-get install -y python3
   apt-get install -y debootstrap libarchive-dev squashfs-tools
   apt-get install -y libtool m4 automake && apt-get install -y python3-pip
-  apt-get install -y nano git cmake gfortran curl wget autoconf bzip2 libtool libtool-bin
+  apt-get install -y nano git cmake gfortran curl wget autoconf bzip2 libtool libtool-bin sudo             # "sudo" is not installed by default in containers like docker, singularity
   pip3 install --upgrade setuptools
   pip3 install -U numpy
   pip3 install --upgrade scipy
   pip3 install -U scikit-learn
 
-  # 'rgf-python' specific installation ( create an ".rgfrc" file as indicated in https://github.com/RGF-team/rgf/tree/master/python-package )
-  echo 'exe_location=$HOME/rgf/python-package/compile/RGF/bin/rgf' >> .rgfrc 
-  echo 'fastrgf_location=$HOME/rgf/python-package/compile/FastRGF/bin' >> .rgfrc
-  echo 'temp_location=tempfile.gettempdir()' >> .rgfrc
-
-  git clone https://github.com/RGF-team/rgf.git
-  cd rgf/python-package
-  python3 setup.py install
-  cd
+  sudo pip3 install rgf_python                                                                             # requires "sudo" [ system-wide installation ]
 
   # Software versions
   export RSTUDIO_VERSION=1.1.453

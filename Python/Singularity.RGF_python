@@ -17,27 +17,15 @@ From: ubuntu:18.04
   apt-get -y update && apt-get -y upgrade
   apt-get install -y python3 vim wget
   apt-get install -y python3-pip
-  pip3 install --upgrade pip==9.0.3                               # do this due to a problem with 'python-pip' ( SEE : https://github.com/pypa/pip/issues/5240#issuecomment-381673100 )
+  pip3 install --upgrade pip==9.0.3                                                                        # do this due to a problem with 'python-pip' ( SEE : https://github.com/pypa/pip/issues/5240#issuecomment-381673100 )
   pip3 install jupyter
   pip3 install -U numpy
-  apt-get install -y nano git cmake gfortran g++ curl wget autoconf bzip2 libtool libtool-bin
+  apt-get install -y nano git cmake gfortran g++ curl wget autoconf bzip2 libtool libtool-bin sudo         # "sudo" is not installed by default in containers like docker, singularity
   pip3 install --upgrade setuptools
   pip3 install --upgrade scipy
   pip3 install -U scikit-learn
-  
-  # 'rgf-python' specific installation ( create an ".rgfrc" file as indicated in https://github.com/RGF-team/rgf/tree/master/python-package )
-  echo 'exe_location=$HOME/rgf/python-package/compile/RGF/bin/rgf' >> .rgfrc 
-  echo 'fastrgf_location=$HOME/rgf/python-package/compile/FastRGF/bin' >> .rgfrc
-  echo 'temp_location=tempfile.gettempdir()' >> .rgfrc
 
-  git clone https://github.com/RGF-team/rgf.git
-  cd rgf/python-package
-  python3 setup.py install
-  cd
-
-  echo 'unset XDG_RUNTIME_DIR' >> ~/.bashrc                        # SEE : https://github.com/jupyter/notebook/issues/1318#issuecomment-228289459
-
-  apt-get update
+  sudo pip3 install rgf_python                                                                             # requires "sudo" [ system-wide installation ]
 
   # clean tmp files
   apt-get autoremove -y

@@ -24,10 +24,6 @@ From: ubuntu:18.04
   pip3 install fuzzywuzzy
   pip3 install python-Levenshtein
 
-  echo 'unset XDG_RUNTIME_DIR' >> ~/.bashrc                        # SEE : https://github.com/jupyter/notebook/issues/1318#issuecomment-228289459
-
-  apt-get update
-
   # clean tmp files
   apt-get autoremove -y
   apt-get clean
