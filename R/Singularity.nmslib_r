@@ -14,14 +14,18 @@ From: nickjer/singularity-r:3.5.1
 %help
   This will run RStudio Server
 
+
 %apprun rserver
   exec rserver "${@}"
+
 
 %runscript
   exec rserver "${@}"
 
+
 %environment
   export PATH=/usr/lib/rstudio-server/bin:${PATH}
+
 
 %post
 

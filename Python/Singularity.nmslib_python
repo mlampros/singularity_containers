@@ -25,6 +25,9 @@ From: ubuntu:18.04
   apt-get install -y cmake
   pip3 install --upgrade pybind11
   pip3 install nmslib
+
+  echo 'unset XDG_RUNTIME_DIR' >> ~/.bashrc                        # SEE : https://github.com/jupyter/notebook/issues/1318#issuecomment-228289459
+
   apt-get update
 
   # clean tmp files

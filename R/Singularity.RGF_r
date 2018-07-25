@@ -41,8 +41,8 @@ From: nickjer/singularity-r:3.5.1
   pip3 install -U scikit-learn
 
   # 'rgf-python' specific installation ( create an ".rgfrc" file as indicated in https://github.com/RGF-team/rgf/tree/master/python-package )
-  echo 'exe_location=$HOME/rgf' >> .rgfrc 
-  echo 'fastrgf_location=$HOME' >> .rgfrc
+  echo 'exe_location=$HOME/rgf/python-package/compile/RGF/bin/rgf' >> .rgfrc 
+  echo 'fastrgf_location=$HOME/rgf/python-package/compile/FastRGF/bin' >> .rgfrc
   echo 'temp_location=tempfile.gettempdir()' >> .rgfrc
 
   git clone https://github.com/RGF-team/rgf.git
