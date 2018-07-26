@@ -52,8 +52,9 @@ From: nickjer/singularity-r:3.5.1
   pip install --upgrade pip==9.0.3                               # do this because there is a problem with 'python-pip' ( SEE : https://github.com/pypa/pip/issues/5240#issuecomment-381673100 )
   pip install numpy fuzzywuzzy python-Levenshtein
 
-  R --slave -e 'install.packages(c("devtools", "roxygen2", "testthat", "reticulate", "R6", "covr", "knitr", "rmarkdown"), repos="https://cloud.r-project.org/")'
-  R --slave -e 'devtools::install_github("mlampros/fuzzywuzzyR")'
+  R --slave -e 'install.packages(c("devtools", "roxygen2", "testthat", "reticulate", "R6", "covr", "knitr", "rmarkdown", "fuzzywuzzyR"), repos="https://cloud.r-project.org/")'
+
+  apt-get update
 
   # Clean up
   rm -rf /var/lib/apt/lists/*
