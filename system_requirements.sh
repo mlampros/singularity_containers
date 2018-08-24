@@ -23,14 +23,22 @@ sudo apt-get update
 
 
 
-# then install Singularity
+# then install Singularity 
 #-------------------------
 
-git clone https://github.com/singularityware/singularity.git
+# References : https://github.com/singularityware/singularity-userdocs/blob/master/installation.rst#install-on-linux, https://github.com/singularityware/singularity/releases
+# Beginning from version 3.0.0 the 'Go' programming language is required
 
-cd singularity
 
-./autogen.sh
+sudo apt-get update && sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev
+
+VERSION=2.6.0                # last stable release before version 3.0.0
+
+wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
+
+tar xvf singularity-$VERSION.tar.gz
+
+cd singularity-$VERSION
 
 ./configure --prefix=/usr/local
 
