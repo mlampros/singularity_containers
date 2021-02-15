@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 
+#---------------------------
 # first install requirements
 #---------------------------
 
@@ -23,7 +24,8 @@ sudo apt-get update
 
 
 
-# then install Singularity 
+#-------------------------
+# then install Singularity      [ BE AWARE that on Ubuntu singularity can be also installed using : sudo apt-get install -y singularity-container , see: https://singularity.lbl.gov/install-linux ] 
 #-------------------------
 
 # References : https://github.com/singularityware/singularity-userdocs/blob/master/installation.rst#install-on-linux, https://github.com/singularityware/singularity/releases
